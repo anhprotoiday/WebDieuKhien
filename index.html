@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shorcut icon"
+        href="https://scontent.xx.fbcdn.net/v/t1.15752-9/297650756_1107998600098090_7156379373870152000_n.png?_nc_cat=109&ccb=1-7&_nc_sid=aee45a&_nc_ohc=qrSSL1pxuPgAX82PlzH&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKnetGHPNJies92hOmzFlGiOMvjzyc-xnzqj4XeUsVe1w&oe=6325A3BA">
+    <title>Đóng gói tự động</title>
+</head>
+<style>
+    /* GLOBAL */
+    h1 {
+        font-size: 42px;
+        text-align: center;
+        margin: 32px 0;
+    }
+
+    .control {
+        display: block;
+        margin: 16px auto;
+        text-align: center;
+    }
+
+    .controlA {
+        margin-top: 16px;
+    }
+
+    .title {
+        font-weight: 700;
+        font-size: 32px;
+    }
+
+    .btn {
+        cursor: pointer;
+        border: 0;
+        color: #000;
+        background: #ff002f2f;
+        padding: 18px 32px;
+        border-radius: 6px;
+        font: 600 22px "Montserrat";
+        box-shadow: 0 6px 0 #ff0030;
+        transition: .3s;
+        margin: 0 16px;
+        margin: 16px 10px;
+    }
+
+    .btn:active {
+        transform: translateY(8px);
+        box-shadow: 0 3px 0 #ff0030;
+    }
+
+    .stt {
+        text-align: center;
+        font-size: 24px;
+        display: block;
+
+    }
+
+    #stt {
+        display: inline-block;
+    }
+
+    #sttA {
+        display: inline-block;
+    }
+
+    .line {
+        display: block;
+        margin: 0 auto;
+        border-bottom: 1px #ff0030 solid;
+        opacity: 0.7;
+        width: 70%;
+    }
+</style>
+
+<body>
+    <h1>Website điều khiển đóng gói tự động</h1>
+    <!-- HANDMADE -->
+    <div class="control">
+        <div class="title">Đóng gói thủ công</div>
+        <button onclick="bat()" class="btn" id="on">Đóng gói</button>
+        <button onclick="tat()" class="btn" id="off">Mặc định</button>
+        <div class="stt"> Trạng thái: <p id="stt">mặc định</p>
+        </div>
+    </div>
+    <div class="line"></div>
+    <!-- AUTU -->
+    <div class="control controlA">
+        <div class="title">Đóng gói tự động</div>
+        <button onclick="batA()" class="btn" id="onA">Đóng gói</button>
+        <button onclick="tatA()" class="btn" id="offA">Mặc định</button>
+        <div class="stt"> Trạng thái: <p id="sttA">mặc định</p>
+        </div>
+    </div>
+</body>
+<script>
+    // CONTROL
+    //HANDMADE
+    function bat() 
+    {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open('GET', 'http://192.168.1.3/bat.html', true);
+        xhttp.send();
+        document.getElementById('stt').innerHTML = "on";
+    }
+    function tat()
+    {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open('GET', 'http://192.168.1.3/tat.html', true);
+        xhttp.send();
+        document.getElementById('stt').innerHTML = "off";
+        
+    }
+    //AUTU
+    function batA() 
+    {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open('GET', 'http://192.168.1.3/batA.html', true);
+        xhttp.send();
+        document.getElementById('sttA').innerHTML = "on";
+    }
+    function tatA() 
+    {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open('GET', 'http://192.168.1.3/tatA.html', true);
+        xhttp.send();
+        document.getElementById('sttA').innerHTML = "off";
+    }
+</script>
+</html>
